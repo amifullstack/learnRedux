@@ -5,9 +5,16 @@ import { BrowserRouter as Router,
    Switch,   
     } from 'react-router-dom';
 import {browserHistory, IndexRoute} from 'react-router'
+import { Provider } from 'react-redux';
+
+// Components
 import HomePage from './Components/Home/HomePage'
 import Grid from './Components/Grid/Grid';
 import Single from './Components/Single/Single';
+import Store from './Store/index';
+
+// App
+import StoreApp from './Components/StoreApp'
 
 
 class App extends Component {
@@ -17,13 +24,14 @@ class App extends Component {
 
   render() {
     return(
+      <Provider store={Store}>
       <Router >
         <div>
           <h1>Minimal React Boilerplate!</h1>
 
           <Switch>
-            {/* <Route exact path='/' component={HomePage} /> */}
-            <Route exact path ='/' component={Grid} />
+            <Route exact path='/' component={StoreApp} />
+            <Route path ='/g' component={Grid} />
             <Route path='/view/:postId' component={Single} />          
             
             Add all route above this line
@@ -31,6 +39,7 @@ class App extends Component {
           </Switch>
         </div>        
       </Router>
+      </Provider>
     )
   }
 }

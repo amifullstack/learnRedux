@@ -9,8 +9,8 @@ class HomePage extends Component {
   render() {
     return(
       <div>
-        <Link to='/'><h1>Vegies</h1></Link>
-      </div>
+        <Link to='/'><h1>Vegies</h1></Link>        
+      </div>      
     )
   }
 }
